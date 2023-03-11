@@ -7,7 +7,7 @@ import hbs from 'hbs'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import adminRouter from './routes/admin.js'
-import usersRouter from './routes/users.js';
+import usersRouter from './routes/user.js';
 
 
 const app =  express()
