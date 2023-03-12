@@ -1,4 +1,5 @@
 import AdminModel from '../models/admin.js';
+import Usermodel from '../models/user.js';
 import bcrypt from "bcrypt";
 
 const adminHelper = {
@@ -16,6 +17,19 @@ const adminHelper = {
             } else {
                 reject(false)
             }
+        })
+    },
+    getAllUsers: () => {
+        return new Promise(async (resolve, reject) => {
+            const allUsers = await Usermodel.find({})
+            allUsers ? resolve(allUsers) : reject("No Users")
+        })
+    },
+    deleteUser: (id) => {
+        return new Promise(async (resolve, reject) => {
+            const data = await Usermodel.deleteOne({_id: id})
+            resolve(data)
+            // reject("Error deleting")
         })
     }
 }

@@ -8,24 +8,28 @@ router.get('/', (req, res) => {
 })
 
 router.get('/signup', (req, res) => {
-    res.render('user/signUp', {title: "User"})
-    // userHelper.doSignup(req)
+    res.render('user/signUp', { title: "User" })
 })
 
 router.post('/signup', (req, res) => {
-    userHelper.doSignup(req).then((status) => {
-        res.redirect('/')
-    }).catch((err) => {
-        res.render('user/signUp', {error: err})
-    })
+    userHelper.doSignup(req)
+        .then(() => {
+            res.redirect('/')
+        }).catch((err) => {
+            res.render('user/signUp', { error: err })
+        })
 })
 
 router.get('/login', (req, res) => {
-    res.render('user/login', {title: "User"})
+    res.render('user/login', { title: "User" })
 })
 
 router.post('/login', (req, res) => {
-    res.render('user/login', {title: "User"})
+    userHelper.doLogin(req).then((status) => {
+        res.redirect('/')
+    }).catch(err => {
+        res.render('user/login', { error: err })
+    })
 })
 
 

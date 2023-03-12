@@ -11,23 +11,23 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">
-                                                    No.
+                                                    Id
                                                 </th>
-                                                <th scope="col">EMPLOYEES</th>
-                                                <th scope="col">POSITION</th>
-                                                <th scope="col">AGE</th>
-                                                <th scope="col">ADDRESS</th>
-                                                <th scope="col">Close</th>
+                                                <th scope="col">First Name</th>
+                                                <th scope="col">Last Name</th>
+                                                <th scope="col">Email</th>
+                                                {{!-- <th scope="col">Close</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {{#if allusers}}
+                                            {{#each allusers }}
                                             <tr>
-                                                <th scope="row">#</th>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>61</td>
-                                                <td>Edinburgh</td>
-                                                <td>
+                                                <th scope="row">{{_id}}</th>
+                                                <td>{{firstname}}</td>
+                                                <td>{{lastname}}</td>
+                                                <td>{{email}}</td>
+                                                {{!-- <td>
                                                     <button type="button" class="btn btn-primary btn-sm px-2">
                                                         <i class="fa fa-pen-to-square"></i>
                                                     </button>
@@ -35,8 +35,16 @@
                                                         <i class="fa fa-trash"></i>
                                                     </button>
 
-                                                </td>
+                                                </td> --}}
+                                            <td>
+                                                <a class="btn btn-primary btn-sm px-2" href="/admin/edit/{{_id}}"><i class="fa fa-pen-to-square"></i></a>
+                                                <a class="btn btn-danger btn-sm px-2" href="/admin/delete/{{_id}}"><i class="fa fa-trash"></i></a>
+
+                                            </td>
+                                                
                                             </tr>
+                                            {{/each}}
+                                            {{/if}}
                                         </tbody>
                                     </table>
                                 </div>
