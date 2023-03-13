@@ -1,0 +1,54 @@
+<!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-6 mx-auto">
+                <div class="card bg-glass">
+                    <div class="card-body px-3 py-4 px-md-4">
+                        <h4 class="mb-3">Edit User</h4>
+                        <form action="/admin/update/{{data._id}}?_method=PUT" method="POST">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <div class="row">
+                                {{#if error}}
+                                <p class="text-danger small">{{error}}</p>
+                                {{/if}}
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="firstname" name="firstname" class="form-control"
+                                            value="{{data.firstname}}" />
+                                        <label class="form-label" for="firstname">First name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-outline">
+                                        <input type="text" id="lastname" name="lastname" class="form-control"
+                                            value="{{data.lastname}}" />
+                                        <label class="form-label" for="lastname">Last name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-2">
+                                <input type="email" id="email" name="email" class="form-control"
+                                    value="{{data.email}}" />
+                                <label class="form-label" for="email">Email address</label>
+                            </div>
+
+                            <div class="row">
+                                <button type="submit" class="btn btn-success btn-block col-3 mx-auto">
+                                    Update
+                                </button>
+                            </div>
+
+
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->

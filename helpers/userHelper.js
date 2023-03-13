@@ -7,10 +7,10 @@ const userHelper = {
             const { firstname, lastname, email, password } = req.body
             if (email && password && firstname) {
                 let emailExist = await Usermodel.exists({ email: email })
-                if (emailExist) { reject("Email already exist"); return }
+                if (emailExist) { reject({err: "Email already exist", data: req.body}); return }
                 const passwordHash = await bcrypt.hash(password, 10)
                 Usermodel.create({ firstname: firstname, lastname: lastname, email: email, password: passwordHash }).then(data => {
-                    resolve("User created")
+                    resolve(data)
                 })
             } else {
                 reject("no email/password/firstname")
@@ -21,15 +21,14 @@ const userHelper = {
         return new Promise(async (resolve, reject) => {
             const { email, password } = req.body
             const userCreds = await Usermodel.findOne({ email: email })
-            console.log(userCreds)
             if (userCreds) {
                 const status = await bcrypt.compare(password, userCreds.password)
                 if (status) {
-                    resolve(status)
+                    resolve(userCreds)
                 }
-                reject(status)
+                reject("Invalid Credentials")
             } else {
-                reject(false)
+                reject("Invalid Credentials")
             }
         })
     }

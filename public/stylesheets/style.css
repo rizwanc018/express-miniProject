@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
 .background-radial-gradient {
   background-color: hsl(218, 41%, 15%);
   background-image: radial-gradient(650px circle at 0% 0%,
@@ -66,4 +72,10 @@ table th {
   border: 2px solid rgba(255, 255, 255, 0.05);
   background-clip: padding-box;
   box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+
+
+#usersTable_length, #usersTable_info, #usersTable_paginate {
+  display: none;
 }

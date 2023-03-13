@@ -1,0 +1,57 @@
+<!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+
+
+            {{!-- <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div> --}}
+
+                <div class="card bg-glass">
+                    <div class="card-body px-4 py-5 px-md-5">
+                        <form action="/admin/adduser" method="POST">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <div class="row">
+                                {{#if error}}
+                                <p class="text-danger small">{{error.err}}</p>
+                                {{/if}}
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="firstname" name="firstname" class="form-control" />
+                                        <label class="form-label" for="firstname">First name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="lastname" name="lastname" class="form-control" />
+                                        <label class="form-label" for="lastname">Last name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="email" name="email" class="form-control" />
+                                <label class="form-label" for="email">Email address</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input type="password" id="password" name="password" class="form-control" />
+                                <label class="form-label" for="password">Password</label>
+                            </div>
+                            <p id="pmm" class="d-none text-danger small">Password mismatch</p>
+                            <button type="submit" class="btn btn-success btn-block">
+                                Add User
+                            </button>
+
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            {{!-- </div> --}}
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->

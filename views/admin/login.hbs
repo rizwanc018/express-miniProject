@@ -9,18 +9,19 @@
 
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form action="/admin/login" method="POST">
+                        <form novalidate action="/admin/login" method="POST">
                             <!-- Email input -->
-                            <h5>Admin Login</h5>
+                            <h5 class="text-danger">Admin Login</h5>
                             <div class="form-outline mb-4 form-floating">
                                 <input type="text" id="username" name="username" class="form-control"
-                                    placeholder="Username" />
+                                    placeholder="Username" required />
                                 <label class="form-label" for="username">Username</label>
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-3 form-floating">
-                                <input type="password" id="password" name="password" class="form-control" placeholder="password" />
+                                <input type="password" id="password" name="password" class="form-control"
+                                    placeholder="password" required />
                                 <label class="form-label" for="password">Password</label>
                             </div>
                             <div class="row">
@@ -29,6 +30,15 @@
                                 </button>
                             </div>
                         </form>
+                        <script>
+                            const form = document.querySelector('form');
+                            form.addEventListener('submit', e => {
+                                if (!form.checkValidity()) {
+                                    e.preventDefault();
+                                }
+                                form.classList.add('was-validated');
+                            })
+                        </script>
                     </div>
                 </div>
             </div>

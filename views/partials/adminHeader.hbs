@@ -1,7 +1,6 @@
 <div class="container-fluid px-0">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light px-2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" style="width:fit-content" href="/">
-
             <svg enable-background="new 0 0 800 142" viewBox="0 0 800 142" width="800"
                 xmlns="http://www.w3.org/2000/svg" data-v-51b36812="" style="width: 150px; min-width: 143px;">
                 <g fill="currentColor" id="text">
@@ -54,21 +53,14 @@
             </svg>
         </a>
         <div class="dropdown ms-auto">
-            <button class="btn btn-primary dropdown-toggle text-capitalize" type="button" data-bs-toggle="dropdown"
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                {{#if userData.loggedIn}}
-                {{userData.name}}
-                {{else}}
-                Account
-                {{/if}}
+                Admin
             </button>
             <ul class="dropdown-menu">
-                {{#if userData.loggedIn}}
-                <li><a class="dropdown-item text-right" href="/logout">Logout</a></li>
-                {{else}}
-                <li><a class="dropdown-item text-right" href="/login">Login</a></li>
-                {{/if}}
+                <li><a class="dropdown-item text-right" href="/admin/logout">Logout</a></li>
             </ul>
         </div>
+
     </nav>
 </div>
