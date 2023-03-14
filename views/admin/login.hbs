@@ -32,7 +32,11 @@
                         </form>
                         <script>
                             const form = document.querySelector('form');
+                            const uname = document.querySelector('#username')
                             form.addEventListener('submit', e => {
+                                if(uname.value.trim() === "") {
+                                    uname.value = ""
+                                }
                                 if (!form.checkValidity()) {
                                     e.preventDefault();
                                 }

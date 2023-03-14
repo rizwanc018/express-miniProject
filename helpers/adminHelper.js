@@ -12,7 +12,7 @@ const adminHelper = {
                 if (status) {
                     resolve(status)
                 }
-                reject(status)
+                reject("Invalid credentials")
             } else {
                 reject(false)
             }
