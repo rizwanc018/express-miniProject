@@ -17,7 +17,12 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    res.render('admin/login')
+    if (req.session.admin) {
+        res.redirect('/admin')
+    } else {
+
+        res.render('admin/login')
+    }
 })
 
 router.post('/login', async (req, res) => {
@@ -39,7 +44,7 @@ router.get('/dashboard', (req, res) => {
 
 
 router.get('/adduser', (req, res) => {
-    res.render('admin/addUser', {isAdmin: req.session.admin})
+    res.render('admin/addUser', { isAdmin: req.session.admin })
 })
 
 router.post('/adduser', (req, res) => {
@@ -53,7 +58,7 @@ router.post('/adduser', (req, res) => {
 
 router.get('/edit/:id', (req, res) => {
     adminHelper.getUser(req.params.id).then((data) => {
-        res.render('admin/editUser', { data: data, isAdmin: req.session.admin  })
+        res.render('admin/editUser', { data: data, isAdmin: req.session.admin })
     })
 })
 
